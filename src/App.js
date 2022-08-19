@@ -1,14 +1,22 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom'
+import Home from './components/Home'
+import Layout from './components/Layout'
+import Contact from './components/Contact';
+import Portfolio from './components/Portfolio';
 import './App.scss';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Hello Welcome To My Website!</h1>
-        <p>This site is still in the works. In the meantime check out my <a href = "https://www.linkedin.com/in/jacob-kelderman-72ba671a7/">LinkedIn</a></p>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+        </Route>
+      </Routes>
+    </>
   );
 }
 
